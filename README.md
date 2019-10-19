@@ -5,8 +5,10 @@ The basic idea of this program is to visualize both the recursive backtraking al
 
 Recursive Backtracking Algorithm :
  1.Make the initial cell the current cell and mark it as visited
+ 
  2.While there are unvisited cells
-      1.If the current cell has any neighbours which have not been visited
+ 
+					 1.If the current cell has any neighbours which have not been visited
             1.Choose randomly one of the unvisited neighbours
             2.Push the current cell to the stack if it has more than one unvisited neighbor
             3.Remove the wall between the current cell and the chosen cell
