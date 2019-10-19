@@ -3,6 +3,7 @@ Generates a maze using recursive backtracking algorithm and finding the best pat
 
 The basic idea of this program is to visualize both the recursive backtraking algorithm and the respective path finding algorithms
 using p5.js and html
+(Note: In the final path finding output, the yellow path is the final path, the green highlighted cells are the cells remaining from the open set and the red highlighted ones are the cells remaining from the closed set.
 
 
 
