@@ -3,11 +3,16 @@ Generates a maze using recursive backtracking algorithm and finding the best pat
 
 The basic idea of this program is to visualize both the recursive backtraking algorithm and the respective path finding algorithms
 
+
+
+
+
 Recursive Backtracking Algorithm :
  
  1.Make the initial cell the current cell and mark it as visited
  
  2.While there are unvisited cells
+      
       1.If the current cell has any neighbours which have not been visited
             1.Choose randomly one of the unvisited neighbours
             2.Push the current cell to the stack if it has more than one unvisited neighbor
@@ -18,6 +23,13 @@ Recursive Backtracking Algorithm :
             2.Make it the current cell
             
             
+
+
+
+
+
+
+
 A* algorithm:
 
 1.Create a search graph G, consisting solely of the start node, no. Put no on a list called OPEN.
