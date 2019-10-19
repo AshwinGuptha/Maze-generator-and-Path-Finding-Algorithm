@@ -2,7 +2,7 @@
 Generates a maze using recursive backtracking algorithm and finding the best path using A* algorithm
 
 The basic idea of this program is to visualize both the recursive backtraking algorithm and the respective path finding algorithms
-
+using p5.js and html
 
 
 
