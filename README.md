@@ -21,48 +21,12 @@ Recursive Backtracking Algorithm :
             
 A* algorithm:
 
-function reconstruct_path(cameFrom, current)
-    total_path := {current}
-    while current in cameFrom.Keys:
-        current := cameFrom[current]
-        total_path.prepend(current)
-    return total_path
-
-// A* finds a path from start to goal.
-// h is the heuristic function. h(n) estimates the cost to reach goal from node n.
-function A_Star(start, goal, h)
-    // The set of discovered nodes that may need to be (re-)expanded.
-    // Initially, only the start node is known.
-    openSet := {start}
-
-    // For node n, cameFrom[n] is the node immediately preceding it on the cheapest path from start to n currently known.
-    cameFrom := an empty map
-
-    // For node n, gScore[n] is the cost of the cheapest path from start to n currently known.
-    gScore := map with default value of Infinity
-    gScore[start] := 0
-
-    // For node n, fScore[n] := gScore[n] + h(n).
-    fScore := map with default value of Infinity
-    fScore[start] := h(start)
-
-    while openSet is not empty
-        current := the node in openSet having the lowest fScore[] value
-        if current = goal
-            return reconstruct_path(cameFrom, current)
-
-        openSet.Remove(current)
-        for each neighbor of current
-            // d(current,neighbor) is the weight of the edge from current to neighbor
-            // tentative_gScore is the distance from start to the neighbor through current
-            tentative_gScore := gScore[current] + d(current, neighbor)
-            if tentative_gScore < gScore[neighbor]
-                // This path to neighbor is better than any previous one. Record it!
-                cameFrom[neighbor] := current
-                gScore[neighbor] := tentative_gScore
-                fScore[neighbor] := gScore[neighbor] + h(neighbor)
-                if neighbor not in openSet
-                    openSet.add(neighbor)
-
-    // Open set is empty but goal was never reached
-    return failure
+1.Create a search graph G, consisting solely of the start node, no. Put no on a list called OPEN.
+2.Create a list called CLOSED that is initially empty.
+3.If OPEN is empty, exit with failure.
+4.Select the first node on OPEN, remove it from OPEN, and put it on CLOSED. Called this node n.
+5.If n is a goal node, exit successfully with the solution obtained by tracing a path along the pointers from n to no in G. (The pointers  define a search tree and are established in Step 7.)
+6.Expand node n, generating the set M, of its successors that are not already ancestors of n in G. Install these members of M as      successors of n in G.
+7.Establish a pointer to n from each of those members of M that were not already in G (i.e., not already on either OPEN or CLOSED). Add    these members of M to OPEN. For each member, m, of M that was already on OPEN or CLOSED, redirect its pointer to n if the best path to m found so far is through n. For each member of M already on CLOSED, redirect the pointers of each of its descendants in G so that they point backward along the best paths found so far to these descendants.
+8.Reorder the list OPEN in order of increasting f values. (Ties among minimal f values are resolved in favor of the deepest node in the search tree.)
+9.Go to Step 3.
